@@ -1,0 +1,15 @@
+<package>
+  <description brief="iit_wam_description">
+
+     iit_wam_description
+
+  </description>
+  <author>Davide De Tommaso</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/iit_wam_description</url>
+  <depend package="xacro"/>
+
+</package>
+
+

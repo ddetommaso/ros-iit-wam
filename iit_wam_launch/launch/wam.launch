@@ -1,0 +1,29 @@
+<launch>
+
+	<arg name="gui" default="true" />
+	<arg name="world_x" default="0.0" />
+	<arg name="world_y" default="0.0" />
+	<arg name="world_z" default="0.0" />
+	<arg name="conf" default="/etc/barrett/wam0/default.conf" />
+
+        <param unless="$(arg wam)" name="use_gui" value="$(arg gui)"/>
+
+	<include file="$(find iit_wam_description)/launch/iit_wam_description.launch" />
+
+	<node if="$(arg wam)" pkg="iit_wam_rosnode" type="iit_wam_rosnode" name="$(arg wam_name)_iit_wam_rosnode" args="$(arg wam_name) $(arg conf)"/>
+
+
+	<node pkg="robot_state_publisher" type="state_publisher" name="$(arg wam_name)_state_publisher" >
+	    <param name="publish_frequency" type="double" value="250.0" />
+	    <param name="tf_prefix" type="string" value="$(arg wam_name)" />
+	    <remap from="joint_states" to="$(arg wam_name)/joint_states" />
+	</node>
+
+	<node unless="$(arg wam)" name="$(arg wam_name)_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+	    <param name="rate" type="int" value="100" />
+	    <remap from="joint_states" to="$(arg wam_name)/joint_states" />
+	</node>
+
+	<node pkg="tf" type="static_transform_publisher" name="$(arg wam_name)_robot_base" args="$(arg world_x) $(arg world_y) $(arg world_z) 0 0 0  /world /$(arg wam_name)/world 10" />
+
+</launch>

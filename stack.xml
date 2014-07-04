@@ -1,0 +1,9 @@
+<stack>
+  <description brief="IIT WAM ROS PACKAGE">
+	IIT WAM ROS PACKAGE
+  </description>
+  <author>Davide De Tommaso</author>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/iit_wam_rospkg</url>
+
+</stack>

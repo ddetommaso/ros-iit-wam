@@ -1,0 +1,16 @@
+<package>
+  <description brief="iit_wam_launch">
+
+     iit_wam_launch
+
+  </description>
+  <author>Davide De Tommaso</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/iit_wam_launch</url>
+  <depend package="roscpp"/>
+  <depend package="rospy"/>
+
+</package>
+
+
